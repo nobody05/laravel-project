@@ -12,8 +12,12 @@
   - 部署
   - 日志
   - 链路追踪
-- 服务治理
+- 服务组件
   - 网关
   - 配置中心
   - 注册中心
+## 运行方式
+  - git 克隆项目到本地
+  - 安装依赖包 compose install 
+  - 构建开发环境 docker build -f Dockerfile . && docker run -d 
   
