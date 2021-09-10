@@ -46,13 +46,15 @@ COPY docker/config/php.ini /etc/php8/conf.d/custom.ini
 COPY docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Setup document root
-RUN mkdir -p /var/www/html
+RUN mkdir -p /var/www/html && \
+    mkdir -p /var/log/application
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/lib/nginx && \
-  chown -R nobody.nobody /var/log/nginx
+  chown -R nobody.nobody /var/log/nginx && \
+  chown -R nobody.nobody /var/log/application
 
 # Switch to use a non-root user from here on
 USER nobody
