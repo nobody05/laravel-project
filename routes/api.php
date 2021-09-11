@@ -23,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::namespace("App\Http\Controllers\Api")->prefix("v1")->group(function () {
     Route::get("index", [IndexController::class, 'index']);
     Route::post("login", [IndexController::class, 'login']);
+    Route::get("cacheGet", [IndexController::class, 'cacheGet']);
+    Route::get("cacheSet", [IndexController::class, 'cacheSet']);
 });
